@@ -10,12 +10,12 @@ public class BasicTestWorks(ITestOutputHelper testOutputHelper)
     {
         DapperTypeMappingConfig.RegisterTypeMaps();
         // TODO: Move this test to creating a local database with fake data and testing against. 
-        var connString = "";
+        var connString = "<Hidden>";
         var conn = new SqlConnection(connString);
         await conn.OpenAsync();
-        var query = "SELECT Name, Hp FROM dbo.Enemy";
+        var query = "SELECT Name, Id FROM dbo.Person";
 
-        var results = await conn.QueryAsync<MonsterCard>(query);
+        var results = await conn.QueryAsync<Person>(query);
 
         var results2 = await conn.QueryAsync(query);
         

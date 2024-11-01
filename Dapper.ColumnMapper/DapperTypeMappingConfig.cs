@@ -16,7 +16,6 @@ public static class DapperTypeMappingConfig
             .Any(p => p.GetCustomAttribute<ColumnNameAttribute>() != null));
         foreach (var type in typesWithAttribute)
         {
-            Console.WriteLine($"Registering type map for type: {type.FullName}");
             var mapperType = typeof(ColumnAttributeTypeMapper<>).MakeGenericType(type);
             var mapperInstance = Activator.CreateInstance(mapperType) as SqlMapper.ITypeMap;
             SqlMapper.SetTypeMap(type, mapperInstance);

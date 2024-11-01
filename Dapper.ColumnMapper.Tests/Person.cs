@@ -1,9 +1,9 @@
 ﻿namespace Dapper.ColumnMapper.Tests;
 
-public class MonsterCard
+public class Person
 {
     [ColumnName("Name")]
     public string Description { get; set; } = "";
-
-    [ColumnName("Hp")] public int TestId { get; set; } = 0;
+    [ColumnName("Id")] 
+    public int TestId { get; set; } = 0;
 }
